@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Order Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div>
+        Order Entry
+        <input type="text" placeholder="Search for accounts" />
+    </div>
+    <div>
+        <button>Save</button>
+        <button>Undo Changes</button>
+    </div>
+    <form class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                Account Name<input /><br />
+                Account ID<input /><br />
+                Contact Name*<input /><br />
+                Contact Email Address*<input /><br />
+                Location Type*<input /><br />
+            </div>
+            <div class="col-md-6">
+                Shipping Address 1*<input /><br />
+                Shipping Address 2*<input /><br />
+                City*<input /><br />
+                Country*<input /><br />
+                State / Prov*<input />
+                Postal Code*<input />
+            </div>
+        </div>
+    </form>
+    <h3>Items</h3>
+    <div>Add Row</div>
+    <table style="width:100%">
+        <tr>
+            <th>Part #</th>
+            <th>Quantity</th>
+            <th>Unit Cost</th>
+            <th>Extended Cost</th>
+        </tr>
+        <tr>
+            <td>12345</td>
+            <td>2</td>
+            <td>2.50</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>45678</td>
+            <td>8</td>
+            <td>8.95</td>
+            <td></td>
+        </tr>
+    </table>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div>Subtotal:</div>
+                <div></div>
+                <div>Shipping & Handling:</div>
+                <div></div>
+            </div>
+            <div class="col-md-6">
+                <div>Tax:</div>
+                <div></div>
+                <div>Total:</div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
