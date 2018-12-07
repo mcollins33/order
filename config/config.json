@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "blogger",
+    "password": "g3t5mart",
+    "database": "orders",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
