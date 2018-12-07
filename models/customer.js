@@ -8,55 +8,34 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        // billing_street_1: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false
-        // },
-        // billing_street_2: DataTypes.STRING,
-        // billing_city: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false
-        // },
-        // billing_state: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false
-        // },
-        // billing_postal_code: {
-        //     type: DataTypes.INTEGER(5).ZEROFILL,
-        //     allowNull: false
-        // },
-        // billing_country: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false
-        // },
-        location_type: {
+        billing_street_1: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        shipping_street_1: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        shipping_street_2: {
+        billing_street_2: {
             type: DataTypes.STRING,
             allowNull: true
         },
-        shipping_city: {
+        billing_city: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        shipping_state: {
+        billing_state: {
             type: DataTypes.STRING,
             defaultValue: "AZ",
             allowNull: false
         },
-        shipping_postal_code: {
+        billing_postal_code: {
             type: DataTypes.INTEGER(5).ZEROFILL,
             allowNull: false
         },
-        shipping_country: {
+        billing_country: {
             type: DataTypes.STRING,
             defaultValue: "United States",
+            allowNull: false
+        },
+        location_type: {
+            type: DataTypes.STRING,
             allowNull: false
         },
         email: {
