@@ -12,19 +12,32 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the posts
-  
+    // Route for getting some data about our user to be used client side
+    app.get("/api/customer/:search", function(req, res) {
+        db.Customer.findAll({
+                where: {
+                    [db.sequelize.Op.or]: [
+                        { customer_name: {
+                                [db.sequelize.Op.like]: '%' + req.params.search + '%' } },
+                        { contact_name: {
+                                [db.sequelize.Op.like]: '%' + req.params.search + '%' } },
+                        { phone_number: {
+                                [db.sequelize.Op.like]: '%' + req.params.search + '%' } }
+                    ]
+                }
 
-  // Get route for returning posts of a specific category
-  
 
-  // Get rotue for retrieving a single post
-  
+            })
+            .then(function(dbCustomer) {
+                res.json(dbCustomer);
+            });
+    });
 
-  // POST route for saving a new post
-  
-
-  // DELETE route for deleting posts
- 
-  // PUT route for updating posts
- };
+    app.get("/api/customer/id/:id", function(req, res) {
+    	console.log(req.params.id);
+        db.Customer.findById(req.params.id)
+            .then(function(dbCustomer) {
+                res.json(dbCustomer);
+            });
+    });
+};

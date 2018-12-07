@@ -7,52 +7,64 @@
 </head>
 
 <body>
-    <div>
-        Order Entry
-        <input type="text" placeholder="Search for accounts" />
+    <div id="test"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                Order Entry
+                <input class="form-control" id="customer-search" type="text" placeholder="Search for accounts" />
+                <button id="customer-search-button" type="button" class="btn btn-light">Search</button>
+            </div>
+        </div>
+        <div class="table" id="customer-list"></div>
     </div>
     <div>
-        <button>Save</button>
-        <button>Undo Changes</button>
+        <button type="button" class="btn btn-light">Save</button>
+        <button type="button" class="btn btn-light">Undo Changes</button>
     </div>
     <form class="container-fluid">
         <div class="row">
             <div class="col-md-4">
-                Account Name<input /><br />
-                Account ID<input /><br />
-                Contact Name*<input /><br />
-                Contact Email Address*<input /><br />
-                Location Type*<input /><br />
+                Account Name<input class="form-control" id="account-name" type="text" />
+                Account ID<input class="form-control" id="account-id" type="text" />
+                Contact Name*<input class="form-control" id="contact-name" type="text" />
+                Contact Email Address*<input class="form-control" id="contact-email" type="text" />
+                <div class="form-group">
+                    <span><label for="exampleFormControlSelect1">Location Type*</label>
+                    <select class="form-control" id="location-list"></select></span>
+                </div>
             </div>
             <div class="col-md-6">
-                Shipping Address 1*<input /><br />
-                Shipping Address 2*<input /><br />
-                City*<input /><br />
-                Country*<input /><br />
-                State / Prov*<input />
-                Postal Code*<input />
+                Shipping Address 1*<input class="form-control" id="shipping-street-1" type="text" />
+                Shipping Address 2*<input class="form-control" id="shipping-street-2" type="text" />
+                City*<input class="form-control" id="shipping-city" type="text" />
+                <div class="form-group">
+                    <span><label for="exampleFormControlSelect1">Country*</label>
+                    <select class="form-control" id="countries-list"></select></span>
+                </div>
+                <div class="form-group">
+                    <span><label for="exampleFormControlSelect1">State / Prov*</label>
+                    <select class="form-control" id="states-list"></select></span>
+                </div>
+                Postal Code*<input class="form-control" id="shipping-postal-code" type="text" />
             </div>
         </div>
     </form>
     <h3>Items</h3>
     <div>Add Row</div>
-    <table style="width:100%">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Part #</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unit Cost</th>
+                <th scope="col">Extended Cost</th>
+            </tr>
+        </thead>
         <tr>
-            <th>Part #</th>
-            <th>Quantity</th>
-            <th>Unit Cost</th>
-            <th>Extended Cost</th>
-        </tr>
-        <tr>
-            <td>12345</td>
+            <td scope="row">12345</td>
             <td>2</td>
             <td>2.50</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>45678</td>
-            <td>8</td>
-            <td>8.95</td>
             <td></td>
         </tr>
     </table>
@@ -72,6 +84,8 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
