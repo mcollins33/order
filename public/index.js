@@ -58,12 +58,12 @@ $(document).ready(function() {
             $("#contact-name").attr("placeholder", result.contact_name);
             $("#contact-email").attr("placeholder", result.email);
             $("#location-list").val(result.location_type);
-            $("#shipping-street-1").attr("placeholder", result.shipping_street_1);
-            $("#shipping-street-2").attr("placeholder", result.shipping_street_2);
-            $("#shipping-city").attr("placeholder", result.shipping_city);
-            $("#states-list").val(result.shipping_state);
-            $("#shipping-postal-code").attr("placeholder", result.shipping_postal_code);
-            $("#countries-list").val(result.shipping_country);
+            $("#billing-street-1").attr("placeholder", result.billing_street_1);
+            $("#billing-street-2").attr("placeholder", result.billing_street_2);
+            $("#billing-city").attr("placeholder", result.billing_city);
+            $("#states-list").val(result.billing_state);
+            $("#billing-postal-code").attr("placeholder", result.billing_postal_code);
+            $("#countries-list").val(result.billing_country);
         }) 
     });
 
