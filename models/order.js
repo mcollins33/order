@@ -1,16 +1,30 @@
 module.exports = (sequelize, DataTypes) => {
     var Order = sequelize.define('Order', {
-        product:   {
+        shipping_street_1: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
-        quantity: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
+        shipping_street_2: {
+            type: DataTypes.STRING,
+            allowNull: true
         },
-        price: {
-            type: DataTypes.DECIMAL(10, 2),
-            allowNull: false,
+        shipping_city: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        shipping_state: {
+            type: DataTypes.STRING,
+            defaultValue: "AZ",
+            allowNull: false
+        },
+        shipping_postal_code: {
+            type: DataTypes.INTEGER(5).ZEROFILL,
+            allowNull: false
+        },
+        shipping_country: {
+            type: DataTypes.STRING,
+            defaultValue: "United States",
+            allowNull: false
         },
         createdAt: {
             type: DataTypes.DATE,
@@ -24,18 +38,14 @@ module.exports = (sequelize, DataTypes) => {
         classMethods: {
             associate: function(models) {
                 // associations can be defined here
-                Order.belongsTo(models.Customer, {
+            Detail.belongsTo(models.Customer, {
                     foreignKey: {
                         allowNull: false
                     }
-                })
-                .belongsTo(models.User, {
-                    foreignKey: {
-                        allowNull: false
-                    }
-                }).hasMany(models.Product)
+                }).hasMany(models.Detail)
             }
         }
     });
+
     return Order;
 };

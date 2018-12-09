@@ -64,8 +64,65 @@ $(document).ready(function() {
             $("#states-list").val(result.billing_state);
             $("#billing-postal-code").attr("placeholder", result.billing_postal_code);
             $("#countries-list").val(result.billing_country);
-        }) 
+        })
     });
 
+    $("#add-row-button").on("click", function(event) {
+        event.preventDefault();
+        let row = $("<tr>");
+        row.append("<td><input class='order' />");
+        row.append("<td><input class='order' />");
+        row.append("<td><div id='unit-cost' />");
+        row.append("<td><div id='extended-cost' />");
+        $("#order-table").append(row);
+    });
 
+    const getPrice = (partNumber, quantity) => {
+        $.get("/api/product/" + partNumber, function(result) {
+            console.log("part from db", result);
+            $("#unit-cost").append(result.price);
+            $("#extended-cost").append(JSON.parse(result.price) * quantity);
+            let input = {id: result.id, quantity: quantity, price: result.price};
+            if (result.inventory >= quantity) {
+            addOrder(input);
+            } else {
+                console.log("Not enough inventory");
+            }
+        });
+    };
+
+    const addOrder = (input) => {
+        console.log("input", input);
+        $.post("/api/order", {
+            shipping_street_1: input.,
+            shipping_street_2: input.,
+            shipping_city: input.,
+            shipping_state: input.,
+            shipping_postal_code: input.,
+            shipping_country: input.
+        }).then(function(data) {
+
+        }).catch();
+    };
+
+    $("#save-order").on("click", function(event) {
+        event.preventDefault();
+        let orderArray = [];
+        let position = 1;
+        let order = $('.order').map(function() {
+            if (position === 1) {
+                orderArray.push($(this).val().trim());
+                position = 2;
+            } else if (position === 2) {
+                orderArray.push(JSON.parse($(this).val().trim()));
+                position = 1;
+            }
+        });
+        console.log(orderArray);
+        for (let i = 0; i < orderArray.length; i+=2) {
+            getPrice(orderArray[i], orderArray[i+1]);
+        }
+
+
+    });
 });

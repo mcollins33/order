@@ -1,14 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-    var Product = sequelize.define('Product', {
-        part_number: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        product:   {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        inventory: {
+    var Order = sequelize.define('Order', {
+        quantity: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
@@ -24,17 +16,22 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW
         }
-        }, {
+    }, {
         classMethods: {
             associate: function(models) {
                 // associations can be defined here
-                Product.belongsTo(models.Detail, {
+                Detail.belongsTo(models.Order, {
                     foreignKey: {
                         allowNull: false
                     }
-                }).hasMany(models.Detail);
+                })
+                .belongsTo(models.Product, {
+                    foreignKey: {
+                        allowNull: false
+                    }
+                }).hasMany(models.Product)
             }
         }
     });
-    return Product;
+    return Order;
 };

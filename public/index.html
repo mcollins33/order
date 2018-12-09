@@ -19,7 +19,7 @@
         <div class="table" id="customer-list"></div>
     </div>
     <div>
-        <button type="button" class="btn btn-light">Save</button>
+        <button type="button" class="btn btn-light" id="save-order">Save</button>
         <button type="button" class="btn btn-light">Undo Changes</button>
     </div>
     <form class="container-fluid">
@@ -51,22 +51,16 @@
         </div>
     </form>
     <h3>Items</h3>
-    <div>Add Row</div>
-    <table class="table">
+    <button id="add-row-button" type="button" class="btn btn-light">Add Row</button>
+    <table class="table" id="order-table">
         <thead>
-            <tr>
+            <tr id="order-table">
                 <th scope="col">Part #</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Unit Cost</th>
                 <th scope="col">Extended Cost</th>
             </tr>
         </thead>
-        <tr>
-            <td scope="row">12345</td>
-            <td>2</td>
-            <td>2.50</td>
-            <td></td>
-        </tr>
     </table>
     <div class="container-fluid">
         <div class="row">
