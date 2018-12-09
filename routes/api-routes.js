@@ -73,4 +73,27 @@ module.exports = function(app) {
                 res.json(dbCustomer);
             });
     });
+
+    app.get("/api/product/:part", function(req, res) {
+        db.Product.findOne({ where: {part_number: req.params.part} })
+            .then(function(dbPart) {
+                res.json(dbPart);
+            });
+    });
+
+    app.post("/api/order", function(req, res) {
+        db.Order.create({
+            shipping_street_1: req.body.,
+            shipping_street_2: req.body.,
+            shipping_city: req.body.,
+            shipping_state: req.body.,
+            shipping_postal_code: req.body.,
+            shipping_country: req.body.
+        }).then(function(data) {
+
+            console.log(data);
+            // If there's an error, handle it by throwing up a boostrap alert
+        }).catch();
+    });
+
 };
