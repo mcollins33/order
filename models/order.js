@@ -25,20 +25,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             defaultValue: "United States",
             allowNull: false
-        },
-        createdAt: {
-            type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
         }
+    }, {
+        timestamps: false
     }, {
         classMethods: {
             associate: function(models) {
                 // associations can be defined here
-            Detail.belongsTo(models.Customer, {
+                Detail.belongsTo(models.Customer, {
                     foreignKey: {
                         allowNull: false
                     }
