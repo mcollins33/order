@@ -17,7 +17,7 @@ module.exports = function(app) {
         db.Customer.findAll({
                 where: {
                     [db.sequelize.Op.or]: [{
-                            customer_name: {
+                            company_name: {
                                 [db.sequelize.Op.like]: '%' + req.params.search + '%'
                             }
                         },
@@ -62,6 +62,7 @@ module.exports = function(app) {
 
             })
             .then(function(dbCustomer) {
+                console.log(dbCustomer);
                 res.json(dbCustomer);
             });
     });
@@ -81,19 +82,19 @@ module.exports = function(app) {
             });
     });
 
-    app.post("/api/order", function(req, res) {
-        db.Order.create({
-            shipping_street_1: req.body.,
-            shipping_street_2: req.body.,
-            shipping_city: req.body.,
-            shipping_state: req.body.,
-            shipping_postal_code: req.body.,
-            shipping_country: req.body.
-        }).then(function(data) {
+    // app.post("/api/order", function(req, res) {
+    //     db.Order.create({
+    //         shipping_street_1: req.body.,
+    //         shipping_street_2: req.body.,
+    //         shipping_city: req.body.,
+    //         shipping_state: req.body.,
+    //         shipping_postal_code: req.body.,
+    //         shipping_country: req.body.
+    //     }).then(function(data) {
 
-            console.log(data);
-            // If there's an error, handle it by throwing up a boostrap alert
-        }).catch();
-    });
+    //         console.log(data);
+    //         // If there's an error, handle it by throwing up a boostrap alert
+    //     }).catch();
+    // });
 
 };

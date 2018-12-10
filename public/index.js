@@ -53,7 +53,7 @@ $(document).ready(function() {
         let id = $(this).attr('id');
         $.get("/api/customer/id/" + id, function(result) {
             console.log(result);
-            $("#account-name").attr("placeholder", result.customer_name);
+            $("#account-name").attr("placeholder", result.company_name);
             $("#account-id").attr("placeholder", result.id);
             $("#contact-name").attr("placeholder", result.contact_name);
             $("#contact-email").attr("placeholder", result.email);
@@ -91,19 +91,19 @@ $(document).ready(function() {
         });
     };
 
-    const addOrder = (input) => {
-        console.log("input", input);
-        $.post("/api/order", {
-            shipping_street_1: input.,
-            shipping_street_2: input.,
-            shipping_city: input.,
-            shipping_state: input.,
-            shipping_postal_code: input.,
-            shipping_country: input.
-        }).then(function(data) {
+    // const addOrder = (input) => {
+    //     console.log("input", input);
+    //     $.post("/api/order", {
+    //         shipping_street_1: input.,
+    //         shipping_street_2: input.,
+    //         shipping_city: input.,
+    //         shipping_state: input.,
+    //         shipping_postal_code: input.,
+    //         shipping_country: input.
+    //     }).then(function(data) {
 
-        }).catch();
-    };
+    //     }).catch();
+    // };
 
     $("#save-order").on("click", function(event) {
         event.preventDefault();
